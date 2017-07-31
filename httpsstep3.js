@@ -6,22 +6,22 @@ var requestOptions = {
   }
 
 function getAndPrintHTML(options) {
-  https.get(options, function (response) {
-    var responses = "";
+    https.get(options, function (response) {
+      var str = "";
 
-    response.setEncoding('utf8');
-
-
-    response.on('data', function (data) {
-     responses += data;
-   });
+      response.setEncoding('utf8');
 
 
-    response.on('end', function() {
-      console.log(responses);
+      response.on('data', function (data) {
+       str += data;
+     });
+
+
+      response.on('end', function() {
+        console.log(str);
+      });
+
     });
-
-  });
 }
 
 getAndPrintHTML(requestOptions);
